@@ -1,5 +1,20 @@
 var texto = document.getElementById("texto_lineas4");
 var boton = document.getElementById("botoncito4");
+var teclas = {
+    ENTER: 13
+};
+
+document.addEventListener("keyup", dibujarTeclado);
+
+function dibujarTeclado(evento)
+{
+   switch(evento.keyCode)
+   {
+        case teclas.ENTER :
+            dibujoPorClick();
+        break;
+   }
+}
 
 boton.addEventListener("click",dibujoPorClick);
 

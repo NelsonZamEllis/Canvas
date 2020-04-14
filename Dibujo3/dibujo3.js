@@ -1,13 +1,26 @@
 var texto = document.getElementById("texto_lineas");
 var boton = document.getElementById("botoncito");
+var teclas = {
+    ENTER: 13
+};
+
+document.addEventListener("keyup", dibujarTeclado);
+
+function dibujarTeclado(evento)
+{
+   switch(evento.keyCode)
+   {
+        case teclas.ENTER :
+            dibujoPorClick();
+        break;
+   }
+}
 
 boton.addEventListener("click",dibujoPorClick);
 
 var d = document.getElementById("dibujito3");
 var ancho = d.width;
 var lienzo = d.getContext("2d");
-
-
 
 function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
 {
@@ -34,7 +47,6 @@ while(l < lineas)
     yi = espacio * l;
     xf = espacio * (l + 1);
     dibujarLinea(colorcito, 0, yi, xf, 300);
-    console.log("Linea " + l);
     l++;
 }
 
